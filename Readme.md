@@ -1,8 +1,8 @@
-# Spring Boot on Bluemix with IBM Continuous Delivery
+# Spring Boot on IBM Cloud with IBM Continuous Delivery
 
-The goal of this lab is to demonstrate deploying a simple Java web application to Bluemix with a DevOps pipeline for managing the application lifecycle. 
+The goal of this lab is to demonstrate deploying a simple Java web application to IBM Cloud with a DevOps pipeline for managing the application lifecycle. 
 
-As part of this deployment, several actions are happening automatically through the use of configuration files found in the [.bluemix](.bluemix) folder. The two primary actions that are automatically configured to occur are deploying two different microservices from two different repositories and integrating multiple Bluemix services into the deployed applications. 
+As part of this deployment, several actions are happening automatically through the use of configuration files found in the [.bluemix](.bluemix) folder. The two primary actions that are automatically configured to occur are deploying two different microservices from two different repositories and integrating multiple IBM Cloud services into the deployed applications. 
 
 ## Table of Contents
 
@@ -18,9 +18,9 @@ As part of this deployment, several actions are happening automatically through 
 
 ## Prerequisites
 
-1. A Bluemix account is required to complete this lab.
+1. A IBM Cloud account is required to complete this lab.
 
-    To sign up for a new account visit [Bluemix.net](https://console.ng.bluemix.net/ "Welcome to Bluemix")
+    To sign up for a new account visit [IBM Cloud](https://cloud.ibm.com/ "Welcome to IBM Cloud")
 
 2. A Slack team is an **optional** requirement to complete this lab.
 
@@ -28,13 +28,11 @@ As part of this deployment, several actions are happening automatically through 
 
 ## Deployment Steps
 
-1. Log into the [Bluemix console](https://console.ng.bluemix.net/) and create a [Cloudant instance](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/?taxonomyNavigation=services) named `sample-java-cloudant-cloudantNoSQLDB`.
+1. Click the following Deploy to IBM Cloud button to load the initial toolchain setup:
 
-2. Click the following Deploy to Bluemix button to load the initial toolchain setup:
+    [![Deploy to IBM Cloud](https://cloud.ibm.com/devops/setup/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/garage-milan/spring-boot-continuous-delivery)
 
-    [![Deploy to Bluemix](https://github.com/IBM/container-journey-template/blob/master/images/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/spring-boot-continuous-delivery)
-
-3. Once the Tool Integrations have loaded, click on each of the four different integrations to see what settings are available to be changed. 
+2. Once the Tool Integrations have loaded, click on each of the four different integrations to see what settings are available to be changed. 
 
     **Note:** that the fields for GitHub, Eclipse Orion Web IDE, and Delivery Pipeline are automatically populated with data and no input should be required by the user unless changes to what was populated are desired.
 
@@ -46,7 +44,7 @@ As part of this deployment, several actions are happening automatically through 
     
     <img src="media/BluemixSlackIntegration.png" width="500">
 
-4. Click the "Create" button in the bottom right area of the window to instruct Bluemix to create a toolchain for you using the defined settings.
+4. Click the "Create" button in the bottom right area of the window to instruct IBM Cloud to create a toolchain for you using the defined settings.
 
     <img src="media/BluemixCreateButton.png" width="200">
 
@@ -56,7 +54,7 @@ As part of this deployment, several actions are happening automatically through 
 
    **Note:** In this view, Slack was not configured in the previous step before clicking "Create". Slack can be configured at any time after creation of the Toolchain.
 
-6. As soon as the "Create" button was pressed, Bluemix went to work deploying the application via the defined pipeline configurations. Click on the "Delivery Pipeline" box that starts with the words "spring-boot-continuous..." (shown below) in the Toolchain to view the code deployment pipeline of our primary application.
+6. As soon as the "Create" button was pressed, IBM Cloud went to work deploying the application via the defined pipeline configurations. Click on the "Delivery Pipeline" box that starts with the words "spring-boot-continuous..." (shown below) in the Toolchain to view the code deployment pipeline of our primary application.
 
     <img src="media/DeliveryPipeline.png" width="200">
 
@@ -98,7 +96,7 @@ Full Account List                |  Searching Accounts
 
 The following steps will show how to access the account that was just created in the Cloudant DB database
 
-1. Return to [Bluemix](https://console.ng.bluemix.net/ "Welcome to Bluemix") and open the [Services Dashboard](https://console.ng.bluemix.net/dashboard).
+1. Return to [IBM Cloud](https://cloud.ibm.com/ "Welcome to IBM Cloud") and open the [Services Dashboard](https://console.ng.bluemix.net/dashboard).
 
     <img src="media/FindService2.png" width="200">
 
@@ -177,7 +175,7 @@ To demonstrate this, choose either of the two GitHub repositories to edit. For o
 
 # Deployment Configuration
 
-In this application we use several different files that each server an important part of customizing our Bluemix deployment. Below we will give a brief overview of each file's function.
+In this application we use several different files that each server an important part of customizing our IBM Cloud deployment. Below we will give a brief overview of each file's function.
 
 ## toolchain.yml
 
@@ -199,7 +197,7 @@ For our application we have configured the deploy.son file to capture and requir
 
 File location: [.bluemix/pipeline.yml](.bluemix/pipeline.yml)
 
-The pipeline.yml file is used to configure the Bluemix Pipeline for an application. A toolchain can have multiple pipeline files. One way to rename the pipeline.yml files is to add a prefix to the pipeline.yml file's name: example-pipeline.yml. In the pipeline.yml file we can specify things such as build steps, environment variables, custom scripts and instructions, etc.
+The pipeline.yml file is used to configure the IBM Cloud Pipeline for an application. A toolchain can have multiple pipeline files. One way to rename the pipeline.yml files is to add a prefix to the pipeline.yml file's name: example-pipeline.yml. In the pipeline.yml file we can specify things such as build steps, environment variables, custom scripts and instructions, etc.
 
 For our application we have configured the pipeline.yml to build our maven project to a custom location and then deploy the built .war file from the custom location. Additionally, in our pipeline.yml file we have specified the application memory limit using the `cf` command:
 
@@ -219,9 +217,9 @@ One of the primary aspects of this lab is to demonstrate simplified deployment o
 
 # Security Vulnerability Scanning
 
-Easily scan your web application for security vulnerabilites using the [Application Security on Cloud](https://console.ng.bluemix.net/catalog/services/application-security-on-cloud) service on Bluemix.
+Easily scan your web application for security vulnerabilites using the [Application Security on Cloud](https://console.ng.bluemix.net/catalog/services/application-security-on-cloud) service on IBM Cloud.
 
-1. From the Bluemix Catalog click **Security** from the left-side menu, or simply search for **Application Security on Cloud** in the search prompt.
+1. From the IBM Cloud Catalog click **Security** from the left-side menu, or simply search for **Application Security on Cloud** in the search prompt.
 
     <img src="media/BluemixSecurityServices.png">
     
@@ -273,10 +271,10 @@ Easily scan your web application for security vulnerabilites using the [Applicat
 One deployment option is to deploy this application to kubernetes. For this option, we will provision a lite kubernetes cluster via the IBM Bluemix Container Service and deploy the service using the [manifests/deployment.yml](/manifests/deployment.yml) file.
 
 #### Provision and configure IBM Bluemix Container Service
-1) Log into the [Bluemix console](https://console.ng.bluemix.net/) and create a lite [Kubernetes cluster](https://console.bluemix.net/containers-kubernetes/launch) named `mycluster`. This will take several minutes to provision. 
+1) Log into the [IBM Cloud console](https://cloud.ibm.com) and create a lite [Kubernetes cluster](https://console.bluemix.net/containers-kubernetes/launch) named `mycluster`. This will take several minutes to provision. 
 2. Create a Cloudant instance (if you haven't already) named `sample-java-cloudant-cloudantNoSQLDB`.
 3. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Kubectl is the standard way to interact with Kubernetes clusters. You will configure `kubectl` to point to your Kubernetes cluster hosted on the IBM Bluemix Container Service.
-3. Download the [IBM Bluemix CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/index.html#install_bluemix_cli)
+3. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/index.html#install_bluemix_cli)
 3. Make sure you login, then install the IBM Bluemix Container Service plug-in.
 ```sh
 bx login # -sso if using single sign on
@@ -284,7 +282,7 @@ bx plugin install container-service -r Bluemix
 bx plugin list # To verifiy the plugin has been installed
 bx cs init # Initialize the container service plugin
 ```
-6. List the clusters. You should see the cluster you created: `mycluster`. If you don't, make sure you have waited enough time for the cluster to be provisioned. You should see the cluster state as "Ready" in the Bluemix console.
+6. List the clusters. You should see the cluster you created: `mycluster`. If you don't, make sure you have waited enough time for the cluster to be provisioned. You should see the cluster state as "Ready" in the IBM Cloud console.
 ```sh
 bx cs clusters
 ```
@@ -304,7 +302,7 @@ kubectl config get-clusters
 You can now send commands to your Kubernetes cluster!
 
 #### Bind the Cloudant Service
-We will use the Bluemix CLI to create a binding between our Cloudant instance and our Kubernetes cluster.
+We will use the IBM Cloud CLI to create a binding between our Cloudant instance and our Kubernetes cluster.
 1. List the services.
 ```sh
 bx service list

@@ -14,7 +14,7 @@ stages:
     build_type: maven
     script: |-
       #!/bin/bash
-      mvn -B package
+      mvn -B package -Dmaven.test.skip
 - name: Test Stage
   inputs:
   - type: job
@@ -49,11 +49,7 @@ stages:
     script: |-
       #!/bin/bash
       cd target
-      cf push "${CF_APP}-blue" -n "${CF_APP}" -p "springboot-demo.war" -m 256M -f ../manifest-pipeline.yml
-      cf delete "${CF_APP}-green" -f
-      cf rename "${CF_APP}-blue" "${CF_APP}-green"
-      #Optionally, redeploy blue to be able to show they're both up and the green/blue process worked.
-      cf push "${CF_APP}-blue" -n "${CF_APP}" -p "springboot-demo.war" -m 256M -f ../manifest-pipeline.yml
+      cf push "${CF_APP}"-f ../manifest.yml
       cf apps | grep "${CF_APP}"
       # View logs
       # cf logs "${CF_APP}" --recent
