@@ -1,6 +1,6 @@
 ---
 name: "Deploy a simple spring boot application"
-description: "Toolchain to deploy a simple spring boot application to Bluemix"
+description: "Toolchain to deploy a simple spring boot application to IBM Cloud"
 version: 0.1
 image: data:image/svg+xml;base64,$file(toolchain.svg,base64)
 #icon: data:image/svg+xml;base64,$file(icon.svg,base64)
@@ -14,7 +14,7 @@ sample-repo:
   service_id: githubpublic
   parameters:
     repo_name: "{{name}}"
-    repo_url: "https://github.com/IBM/spring-boot-continuous-delivery"
+    repo_url: "https://github.com/garage-milan/spring-boot-continuous-delivery"
     type: clone
     has_issues: true
 
